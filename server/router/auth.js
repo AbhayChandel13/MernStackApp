@@ -51,12 +51,17 @@ router.post('/register', async (req, res) => {
             return res.status(422).json({ error: "email already Exist" });
         }
         const user = new User({ name, email, phone, work, password, cpassword });
-        const userRegister = await user.save()
-        if (userRegister) {
-            res.status(201).json({ message: "User Registered Successfully " });
-        } else {
-            res.status(500).json({ error: "failed to registered" });
-        }
+
+         await user.save()
+
+        // console.log(`${user} user Registered Successfully`);
+        // console.log(userRegister);
+        res.status(201).json({ message: "User Registered Successfully " });
+        // if (userRegister) {
+        //     res.status(201).json({ message: "User Registered Successfully " });
+        // } else {
+        //     res.status(500).json({ error: "failed to registered" });
+        // }
 
     }
     catch (err) {
