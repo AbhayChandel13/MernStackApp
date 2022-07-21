@@ -9,6 +9,8 @@ router.get('/',(req,res)=>{
 
 })
 
+//Using Promises :--
+
 // router.post('/register',(req,res)=>{
 //     const{ name,email,phone, work,password,cpassword} = req.body;
 
@@ -34,6 +36,7 @@ router.get('/',(req,res)=>{
 //     // res.send('mera register page');
 // })
 
+//Using Async and Await :--
 
 router.post('/register',async(req,res)=>{
     const{ name,email,phone, work,password,cpassword} = req.body;
