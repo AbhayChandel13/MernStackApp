@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 require('../db/conn');
 const User = require('../model/userSchema');
@@ -50,13 +51,18 @@ router.post('/register', async (req, res) => {
         if (userExist) {
             return res.status(422).json({ error: "email already Exist" });
         }
-        const user = new User({ name, email, phone, work, password, cpassword });
-
-         await user.save()
+        else if (password != cpassword) {
+            return res.status(422).json({ error: "Password are not matching" });
+        }
+        else {
+            const user = new User({ name, email, phone, work, password, cpassword });
+            await user.save()
+            res.status(201).json({ message: "User Registered Successfully " });
+        }
 
         // console.log(`${user} user Registered Successfully`);
         // console.log(userRegister);
-        res.status(201).json({ message: "User Registered Successfully " });
+       
         // if (userRegister) {
         //     res.status(201).json({ message: "User Registered Successfully " });
         // } else {
@@ -87,12 +93,25 @@ router.post('/signin', async (req, res) => {
         }
 
         const userLogin = await User.findOne({ email: email });
-        console.log(userLogin);
-        if (!userLogin) {
-            res.json({ error: "User Does Not Exits" });
+        // console.log(userLogin);
+
+        if (userLogin) {
+            const isMatch = await bcrypt.compare(password, userLogin.password);
+
+            if (!isMatch) {
+                res.status(400).json({ error: "Invalid Credentials pass" });
+            } else {
+                res.json({ message: "User Signin Successfully" });
+            }
         } else {
-            res.json({ message: "User SignIn Successfully" });
+            res.status(400).json({ error: "Invalid Credentials" });
         }
+
+        // if (!userLogin) {
+        //     res.json({ error: "User Does Not Exits" });
+        // } else {
+        //     res.json({ message: "User SignIn Successfully" });
+        // }
     } catch (err) {
         console.log(err);
     }
