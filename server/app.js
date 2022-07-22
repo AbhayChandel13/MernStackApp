@@ -17,9 +17,10 @@ const PORT = process.env.PORT;
 
 
 
-// app.get('/',(req,res)=>{
-//    res.send('Hello from the server');
-// });
+app.get('/contact',(req,res)=>{
+    res.cookie("Test",'Abhay');
+   res.send('Hello from the contact page ');
+});
 
 app.listen(PORT,()=>{
     console.log(`server is running at port ${PORT}`);
