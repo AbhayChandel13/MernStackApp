@@ -2,20 +2,20 @@ import React from 'react'
 import Header from './header/Header'
 import { NavLink } from 'react-router-dom';
 
-const About = () => {
+const Dashboard = () => {
   return (
     <>
-    <Header />
-    <div id="layoutSidenav">
+      <Header />  
+      <div id="layoutSidenav">
             <div id="layoutSidenav_nav" >
                 <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div className="sb-sidenav-menu">
                         <div className="nav">
                             <div className="sb-sidenav-menu-heading">Core</div>
-                            <NavLink className="nav-link" to="/dashboard">
+                            <a className="nav-link" href="#">
                                 <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                                 Dashboard
-                            </NavLink>
+                            </a>
                             <div className="sb-sidenav-menu-heading">Interface</div>                          
                             
                             <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -25,8 +25,7 @@ const About = () => {
                             </a>
                             <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <NavLink className="nav-link " to="/about"> About </NavLink>
-                            <NavLink className="nav-link " to="/contact"> Contact </NavLink>
-                              
+                                
                             </div>
                             <div className="sb-sidenav-menu-heading">Addons</div>
                             <a className="nav-link" href="#">
@@ -54,7 +53,7 @@ const About = () => {
                  </ol>
                 
                  <p> MERN STACK </p>
-                <h1> Hello Welcome To the About  Page </h1>
+                   <h1> Hello Welcome To the DashBoard Page  </h1>
                 
              </div>
          </main>
@@ -74,9 +73,12 @@ const About = () => {
        
             
         </div>
-      
+    
     </>
   )
 }
 
-export default About
+export default Dashboard
+
+
+       
