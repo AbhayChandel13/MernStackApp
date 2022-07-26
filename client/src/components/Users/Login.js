@@ -1,7 +1,30 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React  ,{useState} from 'react';
+import { NavLink,useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    let navigate = useNavigate();
+    const [email,setEmail] = useState('');
+    const [ password,setPassword] = useState('');
+
+    const loginUser =async(e)=>{
+        e.preventDefault();
+
+        const res = await  fetch('/signin',{
+            method:"POST",
+            headers: {"Content-Type": "application/json"},
+            body:JSON.stringify({email,password})
+        });
+
+        const data = res.json();
+        if(res.status === 400 || !data){
+            window.alert("Invalid Credentials");
+        }else{
+            window.alert("Login Successful");
+            // history.push("/")
+            navigate("/dashboard", { replace: true });
+        }
+    }
+
   return (
     <>      
        <div id="layoutAuthentication">
@@ -13,23 +36,35 @@ const Login = () => {
                                 <div className="card shadow-lg border-0 rounded-lg mt-5">
                                     <div className="card-header"><h3 className="text-center font-weight-light my-4">Login</h3></div>
                                     <div className="card-body">
-                                        <form>
+                                        <form method='POST'>
                                             <div className="form-floating mb-3">
-                                                <input className="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                            <input className="form-control"
+                                                        name="email"
+                                                        id="inputEmail"
+                                                        type="email"
+                                                        placeholder="Your email"
+                                                        value={email}
+                                                        onChange={(e)=>setEmail(e.target.value)} />
+                                                    <label for="inputEmail">Email address</label>
                                             </div>
                                             <div className="form-floating mb-3">
-                                                <input className="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
+                                            <input className="form-control"
+                                                                id="inputPassword"
+                                                                name='password'
+                                                                type="password"
+                                                                placeholder="Create a password"
+                                                                value={password}
+                                                                onChange={(e)=>setPassword(e.target.value) }/>
+                                                            <label for="inputPassword">Password</label>
                                             </div>
-                                            <div className="form-check mb-3">
-                                                <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label className="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
-                                            <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a className="small" href="password.html">Forgot Password?</a>
+                                           
+                                            {/* <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                               
                                                 <a className="btn btn-primary" href="#">Login</a>
-                                            </div>
+                                            </div> */}
+                                            <div className="form-group form-button mt-4 mb-0">
+                                                    <div className="d-grid"><NavLink className="btn btn-primary btn-block" to="" name="login" id="login" value="login" onClick={loginUser}>Login</NavLink></div>
+                                                </div>
                                         </form>
                                     </div>
                                     <div className="card-footer text-center py-3">
