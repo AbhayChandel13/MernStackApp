@@ -1,9 +1,13 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 import logo from "../../images/logo.png";
 import Dashboard from '../Dashboard';
 
 const Header = () => {
+
+   const  handleclick=()=>{
+        console.log("Clicked");
+    }
   return (
     <>     
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -20,7 +24,9 @@ const Header = () => {
             </form>
            {/* -- Navbar-- */}
            <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li className="nav-item dropdown">
+           <NavLink className="btn btn-primary btn-block" to="/">Logout</NavLink>
+           {/* <li><button className="btn btn-primary" type="button" onClick={handleclick}>Logout</button></li> */}
+                {/* <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a className="dropdown-item" href="#!">Settings</a></li>
@@ -28,7 +34,7 @@ const Header = () => {
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#!">Logout</a></li>
                     </ul>
-                </li>
+                </li> */}
             </ul>
         </nav>
       

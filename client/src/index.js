@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard';
 import About from './components/About'
 import Contact from './components/Contact';
 import Error from './components/error';
+import Logout from './components/Logout'
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -22,6 +23,8 @@ import Error from './components/error';
     <Route path="/dashboard" element={<Dashboard />}></Route>
     <Route path="/about" element={<About />}></Route>
     <Route path="/contact" element={<Contact />}></Route>
+    <Route path="/logout" element={<Logout />}></Route>
+
 
 
     <Route path="*" element={<Error />} />

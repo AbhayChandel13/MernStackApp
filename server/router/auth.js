@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const authenticate = require("../middleware/authenticate");
 
 
 require('../db/conn');
@@ -126,8 +127,21 @@ router.post('/signin', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-    // console.log(req.body);
-    // res.json({message:"awesome "});
+   
+
+
+    //about Page 
+     
+    // router.get('/about',authenticate,(req,res)=>{
+    //     console.log("Hello");
+    //     res.send("heelo ")
+    // });
+
+    router.get('/logout',(req,res)=>{
+        console.log("Hello");
+        res.clearCookie('jwtoken',{path:'/'});
+        res.status(200).send("User logout");
+    });
 })
 
 
