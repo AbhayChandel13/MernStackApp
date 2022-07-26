@@ -139,7 +139,7 @@ router.post('/signin', async (req, res) => {
 
     router.get('/logout',(req,res)=>{
         console.log("Hello");
-        res.clearCookie('jwtoken',{path:'/'});
+        res.clearCookie('jwtoken',{path:'/logout'});       
         res.status(200).send("User logout");
     });
 })
