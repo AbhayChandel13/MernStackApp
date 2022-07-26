@@ -1,5 +1,8 @@
 import React  ,{useState} from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Login = () => {
     let navigate = useNavigate();
@@ -17,16 +20,23 @@ const Login = () => {
 
         const data = res.json();
         if(res.status === 400 || !data){
-            window.alert("Invalid Credentials");
+            toast.error(" Invalid Invalid Credentials", {
+                position: "top-center",
+              });
+           // window.alert("Invalid Credentials");
         }else{
-            window.alert("Login Successful");
+            toast.success("Login Successfully!", {
+                position: "top-center",
+              });
+            //window.alert("Login Successful");
             // history.push("/")
             navigate("/dashboard", { replace: true });
         }
     }
 
   return (
-    <>      
+    <>   
+     <ToastContainer />   
        <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Signup = () => {
@@ -37,13 +39,19 @@ const Signup = () => {
         const data = await res.json();
 
         if (res.status === 422 || !data) {
-            window.alert("Invalid Registration");
-            console.log("Invalid Registration");
+            //window.alert("Invalid Registration");
+            toast.error(" Invalid Registration Data", {
+                position: "top-center",
+              });
+            console.log("Invalid Registration Data");
         }
         else {
-            window.alert("Registration Successful");
+            toast.success("Registration Successfully!", {
+                position: "top-center",
+              });
+            //window.alert("Registration Successful");
             console.log("Registration Successful");
-            
+
             // history.push("/login");
             navigate("/login", { replace: true });
         }
@@ -52,6 +60,7 @@ const Signup = () => {
 
     return (
         <>
+         <ToastContainer />
             <div id="layoutAuthentication">
                 <div id="layoutAuthentication_content">
                     <main>
@@ -75,7 +84,7 @@ const Signup = () => {
                                                                 value={user.name}
                                                                 onChange={handleInputs}
                                                             />
-                                                            <label for="inputFirstName"> Your Name </label>
+                                                            <label htmlFor="inputFirstName"> Your Name </label>
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
@@ -88,7 +97,7 @@ const Signup = () => {
                                                                 placeholder="Enter your last name"
                                                                 value={user.phone}
                                                                 onChange={handleInputs} />
-                                                            <label for="inputLastName">Phone</label>
+                                                            <label htmlFor="inputLastName">Phone</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,7 +110,7 @@ const Signup = () => {
                                                         placeholder="enter email"
                                                         value={user.email}
                                                         onChange={handleInputs} />
-                                                    <label for="inputEmail">Email address</label>
+                                                    <label htmlFor="inputEmail">Email address</label>
                                                 </div>
                                                 <div className="form-floating mb-3">
 
@@ -112,7 +121,7 @@ const Signup = () => {
                                                         placeholder="enter your profession"
                                                         value={user.work}
                                                         onChange={handleInputs} />
-                                                    <label for="inputwork">Profession</label>
+                                                    <label htmlFor="inputwork">Profession</label>
                                                 </div>
                                                 <div className="row mb-3">
                                                     <div className="col-md-6">
@@ -125,7 +134,7 @@ const Signup = () => {
                                                                 placeholder="Create a password"
                                                                 value={user.password}
                                                                 onChange={handleInputs} />
-                                                            <label for="inputPassword">Password</label>
+                                                            <label htmlFor="inputPassword">Password</label>
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
@@ -138,7 +147,7 @@ const Signup = () => {
                                                                 placeholder="Confirm password"
                                                                 value={user.cpassword}
                                                                 onChange={handleInputs} />
-                                                            <label for="cpassword">Confirm Password</label>
+                                                            <label htmlFor="cpassword">Confirm Password</label>
                                                         </div>
                                                     </div>
                                                 </div>
