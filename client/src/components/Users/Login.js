@@ -1,10 +1,15 @@
-import React  ,{useState} from 'react';
+import React  ,{useState,useContext} from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { UserContext } from '../../App';
 
 const Login = () => {
+
+     const {state,dispatch}= useContext(UserContext);
+
+
+
     let navigate = useNavigate();
     const [email,setEmail] = useState('');
     const [ password,setPassword] = useState('');
@@ -23,13 +28,12 @@ const Login = () => {
             toast.error(" Invalid Invalid Credentials", {
                 position: "top-center",
               });
-           // window.alert("Invalid Credentials");
+          
         }else{
+            dispatch({type:"USER",payload : true})
             toast.success("Login Successfully!", {
                 position: "top-center",
-              });
-            //window.alert("Login Successful");
-            // history.push("/")
+              });           
             navigate("/dashboard", { replace: true });
         }
     }

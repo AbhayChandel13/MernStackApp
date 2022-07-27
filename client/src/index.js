@@ -1,20 +1,27 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import './index.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Signup from './components/Users/Signup';
-import Login from './components/Users/Login';
-import Dashboard from './components/Dashboard';
-import About from './components/About'
-import Contact from './components/Contact';
-import Error from './components/error';
-import Logout from './components/Logout'
+// import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+// import Signup from './components/Users/Signup';
+// import Login from './components/Users/Login';
+// import Dashboard from './components/Dashboard';
+// import About from './components/About'
+// import Contact from './components/Contact';
+// import Error from './components/error';
+// import Logout from './components/Logout'
+ 
+
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
   ReactDOM.render(
+    
   <React.StrictMode>
+    <App />
+    {/* <UserContext.Provider value={{state, dispatch}}>
     <Router>
     <Routes>
     <Route path="/" element={<Signup />}></Route>
@@ -31,6 +38,7 @@ import Logout from './components/Logout'
     </Routes>
   
     </Router>
+    </UserContext.Provider> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
