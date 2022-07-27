@@ -1,8 +1,35 @@
-import React from 'react'
-import Header from './header/Header'
+import React,{useState,useEffect} from 'react';
+import Header from './header/Header';
 import { NavLink } from 'react-router-dom';
 
 const Dashboard = () => {
+     const [userName,setUserName] = useState('');
+     const [show,setShow] = useState(false);
+
+     const userHomePage = async()=>{
+        try {
+            const res = await fetch('/getdata',{
+                method:"GET",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+            })
+            const data = await res.json();
+            console.log(data);
+            setUserName(data.name);
+            setShow(true);
+
+            // if(!res.status===200){
+            //     const error = new Error(res.error)
+            //     throw error;
+            // }
+        } catch (error) {
+            console.log(error);
+        }
+     }
+     useEffect(()=>{
+        userHomePage();
+     },[]);
   return (
     <>
       <Header />  
@@ -25,6 +52,7 @@ const Dashboard = () => {
                             </a>
                             <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <NavLink className="nav-link " to="/about"> About </NavLink>
+                            <NavLink className="nav-link " to="/contact"> Contact </NavLink>
                                 
                             </div>
                             <div className="sb-sidenav-menu-heading">Addons</div>
@@ -49,11 +77,12 @@ const Dashboard = () => {
              <div className="container-fluid px-4">
                  <h1 className="mt-4">Dashboard</h1>
                  <ol className="breadcrumb mb-4">
-                     <li className="breadcrumb-item active">Dashboard</li>
+                     <li className="breadcrumb-item active">Welcome</li>
                  </ol>
                 
-                 <p> MERN STACK </p>
-                   <h1> Hello Welcome To the DashBoard Page  </h1>
+                
+                   <h1> {userName}  </h1>
+                   <h2>{show ? 'Happy to See You Back':"We are the Mern Developer"}  </h2>
                 
              </div>
          </main>

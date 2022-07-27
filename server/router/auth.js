@@ -132,14 +132,24 @@ router.post('/signin', async (req, res) => {
 
     //about Page 
      
-    // router.get('/about',authenticate,(req,res)=>{
-    //     console.log("Hello");
-    //     res.send("heelo ")
-    // });
+    router.get('/about',authenticate,(req,res)=>{
+        console.log("Hello from About");
+        res.send(req.rootUser);
+    });
+
+     //get User data for homepage and contact page
+     
+     router.get('/getdata',authenticate,(req,res)=>{
+        console.log("Hello ");
+        res.send(req.rootUser);
+    });
+
+
+    //LOGOUT PAGE 
 
     router.get('/logout',(req,res)=>{
-        console.log("Hello");
-        res.clearCookie('jwtoken',{path:'/logout'});       
+        console.log("Hello logout");
+        res.clearCookie('jwtoken',{path:'/'});       
         res.status(200).send("User logout");
     });
 })
