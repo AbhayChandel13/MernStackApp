@@ -1,5 +1,5 @@
 import React,{ useContext} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { UserContext } from '../../App';
 // import logo from "../../images/logo.png";
 // import Dashboard from '../Dashboard';
@@ -8,11 +8,18 @@ const Header = () => {
 
     //const [show, setShow] = useState(false);
     const { state, dispatch } = useContext(UserContext);
+    let navigate = useNavigate();
 
    const  handleclick=()=>{
         console.log("Clicked");
-        window.confirm("Are You Sure, You want to Logout?");
+       if(window.confirm("Are You Sure, You want to Logout?")){
+        navigate = ("/login", { replace: true });
+       }
     }
+    // const  handleclicknouser=()=>{
+    //     console.log("No User Clicked");
+    //     window.confirm("You didn't logged in ");
+    // }
 
     const RenderMenu=()=>{
         if(state){
@@ -22,7 +29,7 @@ const Header = () => {
             {/* <!-- Navbar Brand--> */}
             <a className="navbar-brand ps-3" href="#">Wowz United </a>
             {/* <!-- Sidebar Toggle--> */}
-            <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button>
+            <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#"><i className="fas fa-bars"></i></button>
             {/* <!-- Navbar Search--> */}
             <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div className="input-group">
@@ -32,7 +39,7 @@ const Header = () => {
             </form>
            {/* -- Navbar-- */}
            <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-           <NavLink className="btn btn-primary btn-block" to="/logout" onClick={handleclick}>Logout</NavLink>
+           <NavLink className="btn btn-primary btn-block" to="" onClick={handleclick}>Logout</NavLink>
            {/* <li><button className="btn btn-primary" type="button" onClick={handleclick}>Logout</button></li> */}
                 {/* <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
@@ -64,7 +71,7 @@ const Header = () => {
             </form>
            {/* -- Navbar-- */}
            {/* <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <NavLink className="btn btn-primary btn-block" to="/logout" onClick={handleclick}>Logout</NavLink> 
+            <NavLink className="btn btn-primary btn-block" to="" onClick={handleclicknouser}>Logout</NavLink> 
            
             </ul> */}
         </nav>

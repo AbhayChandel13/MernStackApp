@@ -30,7 +30,7 @@ const Login = () => {
               });
           
         }else{
-            dispatch({type:"USER",payload : true})
+            dispatch({type:"USER",payload : data})
             toast.success("Login Successfully!", {
                 position: "top-center",
               });           

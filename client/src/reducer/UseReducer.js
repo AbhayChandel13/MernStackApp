@@ -1,4 +1,5 @@
-export const initialState = null;
+ export const initialState = null;
+// export const initialState ={ loggedIn: localStorage.getItem('isLoggedin' ) || null};
 
 export const reducer = (state,action)=> {
     if (action.type==="USER"){
