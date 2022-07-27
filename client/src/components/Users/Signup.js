@@ -81,6 +81,7 @@ const Signup = () => {
                                                                 id="inputFirstName"
                                                                 type="text"
                                                                 placeholder="Enter your first name"
+                                                                autoComplete="off"
                                                                 value={user.name}
                                                                 onChange={handleInputs}
                                                             />
@@ -95,6 +96,7 @@ const Signup = () => {
                                                                 id="phone"
                                                                 type="text"
                                                                 placeholder="Enter your last name"
+                                                                autoComplete="off"
                                                                 value={user.phone}
                                                                 onChange={handleInputs} />
                                                             <label htmlFor="inputLastName">Phone</label>
@@ -108,6 +110,7 @@ const Signup = () => {
                                                         id="inputEmail"
                                                         type="email"
                                                         placeholder="enter email"
+                                                        autoComplete="off"
                                                         value={user.email}
                                                         onChange={handleInputs} />
                                                     <label htmlFor="inputEmail">Email address</label>

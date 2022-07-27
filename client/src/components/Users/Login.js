@@ -59,7 +59,7 @@ const Login = () => {
                                                         placeholder="Your email"
                                                         value={email}
                                                         onChange={(e)=>setEmail(e.target.value)} />
-                                                    <label for="inputEmail">Email address</label>
+                                                    <label htmlFor="inputEmail">Email address</label>
                                             </div>
                                             <div className="form-floating mb-3">
                                             <input className="form-control"
@@ -69,7 +69,7 @@ const Login = () => {
                                                                 placeholder="Create a password"
                                                                 value={password}
                                                                 onChange={(e)=>setPassword(e.target.value) }/>
-                                                            <label for="inputPassword">Password</label>
+                                                            <label htmlFor="inputPassword">Password</label>
                                             </div>
                                            
                                             {/* <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
