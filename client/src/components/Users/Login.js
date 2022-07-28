@@ -35,7 +35,10 @@ const Login = () => {
             toast.success("Login Successfully!", {
                 position: "top-center",
               });           
-            navigate("/dashboard", { replace: true });
+           
+            setTimeout(function () {
+                navigate("/dashboard", { replace: true });
+              }, 2000);
         }
     }
    

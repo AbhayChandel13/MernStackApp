@@ -8,6 +8,7 @@ import Logout from './components/Users/Logout'
 import Login from './components/Users/Login';
 import Signup from './components/Users/Signup';
 import { initialState,reducer } from './reducer/UseReducer';
+import Users from './components/Users';
  
 export const UserContext = createContext();
 
@@ -26,6 +27,7 @@ const App = () => {
     <Route path="/dashboard" element={<Dashboard />}></Route>
     <Route path="/about" element={<About />}></Route>
     <Route path="/contact" element={<Contact />}></Route>
+    <Route path="/users" element={<Users />}></Route>
     <Route path="/logout" element={<Logout />}></Route>
 
 

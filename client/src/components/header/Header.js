@@ -11,17 +11,15 @@ const Header = () => {
     let navigate = useNavigate();
 
    const  handleclick=()=>{
-        console.log("Clicked");
-       if(window.confirm("Are You Sure, You want to Logout?")){
-        try {
-            navigate("/login",{ replace: true });
-        } catch (error) {
-            console.log(error);
-        }
+        console.log("Clicked");       
+    //    if(window.confirm("Are You Sure, You want to Logout?")){
+
+    //      navigate("/login",{ replace: true });        
        
-       }else{
-        navigate = ("/login", { replace:false });
-       }
+    //    }
+    //    else{
+    //     navigate = ("/login", { replace:false });
+    //    }
     }
     // const  handleclicknouser=()=>{
     //     console.log("No User Clicked");

@@ -2,39 +2,8 @@ import React,{useEffect} from 'react'
 import Header from './header/Header'
 import { NavLink,useNavigate } from 'react-router-dom';
 
-const About = () => {
-    let navigate = useNavigate();
 
-    const callAboutPage = async(e)=>{
-       
-        try {
-            
-            const res = await fetch('/about',{
-                method:"GET",
-                headers:{
-                    Accept:"application/json",
-                    "Content-Type":"application/json"
-                },
-                credentials:"include"
-            });
-            const data = await res.json();
-            console.log(data);
-
-            if(!res.status=== 200){
-                const error = new Error(res.error);
-                throw error ;
-            }
-
-        } catch (error) {
-            console.log(error);
-            navigate('/login',{replace : true});
-        }
-    }
-
-
-    useEffect(()=>{
-      callAboutPage();
-    },[]);
+const Users = () => {
   return (
     <>
     <Header />
@@ -87,7 +56,7 @@ const About = () => {
                  </ol>
                 
                  <p> MERN STACK </p>
-                <h1> Hello Welcome To the About  Page </h1>
+                <h1> Hello Welcome,This is Userdata Page  </h1>
                 
              </div>
          </main>
@@ -112,4 +81,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Users

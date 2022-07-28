@@ -1,8 +1,40 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Header from './header/Header'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 
 const Contact = () => {
+    let navigate = useNavigate();
+
+    const callConatctPage = async(e)=>{
+       
+        try {
+            
+            const res = await fetch('/contact',{
+                method:"GET",
+                headers:{
+                    Accept:"application/json",
+                    "Content-Type":"application/json"
+                },
+                credentials:"include"
+            });
+            const data = await res.json();
+            console.log(data);
+
+            if(!res.status=== 200){
+                const error = new Error(res.error);
+                throw error ;
+            }
+
+        } catch (error) {
+            console.log(error);
+            navigate('/login',{replace : true});
+        }
+    }
+
+
+    useEffect(()=>{
+      callConatctPage();
+    },[]);
   return (
     <>
     <Header />
@@ -26,6 +58,7 @@ const Contact = () => {
                             <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <NavLink className="nav-link " to="/about"> About </NavLink>
                             <NavLink className="nav-link " to="/contact"> Contact </NavLink>
+                            <NavLink className="nav-link " to="/users">Users </NavLink>
                                 
                             </div>
                             <div className="sb-sidenav-menu-heading">Addons</div>

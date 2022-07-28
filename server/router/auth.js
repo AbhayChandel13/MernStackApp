@@ -137,6 +137,13 @@ router.post('/signin', async (req, res) => {
         res.send(req.rootUser);
     });
 
+     //Contact  Page 
+     
+     router.get('/contact',authenticate,(req,res)=>{
+        console.log("Hello from Contact ");
+        res.send(req.rootUser);
+    });
+
      //get User data for homepage and contact page
      
      router.get('/getdata',authenticate,(req,res)=>{
@@ -147,9 +154,14 @@ router.post('/signin', async (req, res) => {
 
     //LOGOUT PAGE 
 
-    router.get('/logout',(req,res)=>{
+    router.get('/logout',async(req,res)=>{
         console.log("Hello logout");
-        res.clearCookie('jwtoken',{path:'/'});       
+        // res.clearCookie('jwtoken');     
+        // req.user.tokens = req.user.tokens.filter((currElement)=>{
+        //     return currElement.token != req.token
+        // })  
+        res.clearCookie('jwtoken',{path:'/'});   
+        // await req.user.save() 
         res.status(200).send("User logout");
     });
 })

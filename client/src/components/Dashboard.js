@@ -58,6 +58,7 @@ const Dashboard = () => {
                                         <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                             <NavLink className="nav-link " to="/about"> About </NavLink>
                                             <NavLink className="nav-link " to="/contact"> Contact </NavLink>
+                                            <NavLink className="nav-link " to="/users"> Users </NavLink>
 
                                         </div>
                                         <div className="sb-sidenav-menu-heading">Addons</div>
@@ -130,8 +131,8 @@ const Dashboard = () => {
                                             <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                                         </a>
                                         <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                            <NavLink className="nav-link " to="/about"> About </NavLink>
-                                            <NavLink className="nav-link " to="/contact"> Contact </NavLink>
+                                            {/* <NavLink className="nav-link " to="/about"> About </NavLink>
+                                            <NavLink className="nav-link " to="/contact"> Contact </NavLink> */}
                                             <NavLink className="nav-link " to="/login"> Login </NavLink>
                                             <NavLink className="nav-link " to="/"> Registration </NavLink>
 
