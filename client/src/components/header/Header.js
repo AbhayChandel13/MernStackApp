@@ -13,7 +13,14 @@ const Header = () => {
    const  handleclick=()=>{
         console.log("Clicked");
        if(window.confirm("Are You Sure, You want to Logout?")){
-        navigate = ("/login", { replace: true });
+        try {
+            navigate("/login",{ replace: true });
+        } catch (error) {
+            console.log(error);
+        }
+       
+       }else{
+        navigate = ("/login", { replace:false });
        }
     }
     // const  handleclicknouser=()=>{
@@ -39,7 +46,7 @@ const Header = () => {
             </form>
            {/* -- Navbar-- */}
            <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-           <NavLink className="btn btn-primary btn-block" to="" onClick={handleclick}>Logout</NavLink>
+           <NavLink className="btn btn-primary btn-block" to="/logout" onClick={handleclick}>Logout</NavLink>
            {/* <li><button className="btn btn-primary" type="button" onClick={handleclick}>Logout</button></li> */}
                 {/* <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>

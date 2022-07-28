@@ -16,13 +16,15 @@ const Logout = () => {
             },
             credentials: "include"
         }).then((res)=>{
-            dispatch({type:"USER",payload :false})
+             dispatch({type:"USER",payload :false})
+            //dispatch({type:"NoUSER"})
             //navigate('/login',{replace : true});
             if(res.status != 200){
                 const error = new Error(res.error);
                 throw error;
-            }else{
-             navigate('/login',{replace : true});
+            }            
+            else {                
+                navigate('/login',{replace : true});
             }   
         }).catch((err)=>{
             console.log(err);

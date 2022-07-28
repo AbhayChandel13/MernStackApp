@@ -1,4 +1,4 @@
-import React  ,{useState,useContext} from 'react';
+import React  ,{useState,useContext,useEffect} from 'react';
 import { NavLink,useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,13 +30,18 @@ const Login = () => {
               });
           
         }else{
-            dispatch({type:"USER",payload : data})
+             dispatch({type:"USER",payload :true})
+            //dispatch({type:"USER"})
             toast.success("Login Successfully!", {
                 position: "top-center",
               });           
             navigate("/dashboard", { replace: true });
         }
     }
+   
+
+
+    
 
   return (
     <>   
