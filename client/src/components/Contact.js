@@ -1,9 +1,12 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useContext} from 'react';
 import Header from './header/Header'
 import { NavLink,useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
+
 
 const Contact = () => {
     let navigate = useNavigate();
+    const { state, dispatch } = useContext(UserContext);
 
     const callConatctPage = async(e)=>{
        
@@ -35,6 +38,12 @@ const Contact = () => {
     useEffect(()=>{
       callConatctPage();
     },[]);
+    
+    useEffect(() => {
+        // const data = window.localStorage.getItem('MY_APP_STATE');       
+         // if ( data !== null ) state(JSON.parse(data));
+         dispatch({type:"USER",payload :true})
+       }, []);
   return (
     <>
     <Header />

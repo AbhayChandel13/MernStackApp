@@ -1,9 +1,48 @@
-import React,{useEffect} from 'react'
+import React,{useState, useEffect,useContext} from 'react';
 import Header from './header/Header'
 import { NavLink,useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
+
 
 
 const Users = () => {
+    let [usersdata, setUserdata] = useState([]);
+    const { state, dispatch } = useContext(UserContext);
+
+    const getUsers = async(e)=>{
+    
+        try {
+            
+            const res = await fetch('/users',{
+                method:"GET",
+                headers:{
+                    Accept:"application/json",
+                    "Content-Type":"application/json"
+                },
+                credentials:"include"
+            });
+            const data = await res.json();
+            setUserdata(data);
+            console.log(data);
+
+            if(!res.status=== 200){
+                const error = new Error(res.error);
+                throw error ;
+            }
+
+        } catch (error) {
+            console.log(error);            
+        }
+    }
+    useEffect(()=>{
+        getUsers();
+      },[]);
+
+      useEffect(() => {
+        // const data = window.localStorage.getItem('MY_APP_STATE');       
+         // if ( data !== null ) state(JSON.parse(data));
+         dispatch({type:"USER",payload :true})
+       }, []);
   return (
     <>
     <Header />
@@ -53,11 +92,44 @@ const Users = () => {
                  <h1 className="mt-4">Dashboard</h1>
                  <ol className="breadcrumb mb-4">
                      <li className="breadcrumb-item active">Dashboard</li>
-                 </ol>
-                
-                 <p> MERN STACK </p>
-                <h1> Hello Welcome,This is Userdata Page  </h1>
-                
+                 </ol>            
+                 
+               <div className="card mb-4">
+                            <div className="card-header">
+                                {/* <div className="fas fa-table me-1">
+                                DataTable Example
+                            </div> */}
+                            <div className="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            {/* <th>User_Id</th> */}
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Work</th>                                          
+                                            
+                                        </tr>
+                                    </thead>
+                                    {usersdata.map((usersdata, i) => (
+                                    <tbody key={usersdata._id}>
+                                        <tr>
+                                            {/* <td>{usersdata._id}</td> */}
+                                            <td>{usersdata.name}</td>
+                                            <td>{usersdata.email}</td>
+                                            <td>{usersdata.phone}</td>
+                                            <td>{usersdata.work}</td>
+                                            
+                                        </tr>
+                                       
+                                    </tbody>
+                                    ))}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
              </div>
          </main>
          <footer className="py-4 bg-light mt-auto">

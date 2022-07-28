@@ -33,7 +33,21 @@ const Dashboard = () => {
         userHomePage();
     }, []);
 
+
+
     const { state, dispatch } = useContext(UserContext);
+
+    useEffect(() => {
+        window.localStorage.setItem('MY_APP_STATE', JSON.stringify(state));
+      }, [state]);
+
+      useEffect(() => {
+        const data = window.localStorage.getItem('MY_APP_STATE');
+       
+        // if ( data !== null ) state(JSON.parse(data));
+        dispatch({type:"USER",payload :true})
+      }, []);
+
     const RenderMenu = () => {
         if (state) {
             return (

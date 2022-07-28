@@ -13,33 +13,6 @@ router.get('/', (req, res) => {
 
 })
 
-//Using Promises :--
-
-// router.post('/register',(req,res)=>{
-//     const{ name,email,phone, work,password,cpassword} = req.body;
-
-//     if(!name || !email || !phone || !work || !password || !cpassword){
-//         return res.status(422).json({error: "Please Filled the correct data "})
-//     }
-
-//     User.findOne({email :email})
-//     .then((userExist)=>{
-//         if(userExist){
-//             return res.status(422).json({error:"email already Exist"});
-//         }
-
-//         const user = new User({name,email,phone,work,password,cpassword});
-//         user.save().then(()=>{
-//             res.status(201).json({message:"User Registered Successfully "});
-//         }).catch((err)=>res.status(500).json({error:"failed to registered"}));
-//     }).catch((err)=>{console.log(err)});
-//     // console.log(name);
-//     // console.log(email);
-//     //console.log(req.body);
-//     //  res.json({message: req.body});
-//     // res.send('mera register page');
-// })
-
 //Using Async and Await :--
 
 router.post('/register', async (req, res) => {
@@ -63,26 +36,12 @@ router.post('/register', async (req, res) => {
             res.status(201).json({ message: "User Registered Successfully " });
         }
 
-        // console.log(`${user} user Registered Successfully`);
-        // console.log(userRegister);
-       
-        // if (userRegister) {
-        //     res.status(201).json({ message: "User Registered Successfully " });
-        // } else {
-        //     res.status(500).json({ error: "failed to registered" });
-        // }
 
     }
     catch (err) {
         console.log(err);
     }
 
-
-    // console.log(name);
-    // console.log(email);
-    //console.log(req.body);
-    //  res.json({message: req.body});
-    // res.send('mera register page');
 })
 
 //login route:--
@@ -165,6 +124,17 @@ router.post('/signin', async (req, res) => {
         res.status(200).send("User logout");
     });
 })
+
+//read the data of registered  Users :
+  
+router.get("/users", async (req, res) => {
+    try {
+      const usersdata = await User.find();
+      res.send(usersdata);
+    } catch(err) {
+      res.send(err);
+    }
+  });
 
 
 module.exports = router;
