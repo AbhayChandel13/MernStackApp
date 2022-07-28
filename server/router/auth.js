@@ -60,14 +60,14 @@ router.post('/signin', async (req, res) => {
 
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password);
-             
-             token = await userLogin.generateAuthToken();
-             console.log(token);
 
-             res.cookie("jwtoken",token,{
-                expires :  new Date(Date.now()+ 25892000000),
+            token = await userLogin.generateAuthToken();
+            console.log(token);
+
+            res.cookie("jwtoken", token, {
+                expires: new Date(Date.now() + 25892000000),
                 httpOnly: true
-             })
+            })
 
             if (!isMatch) {
                 res.status(400).json({ error: "Invalid Credentials pass" });
@@ -86,26 +86,26 @@ router.post('/signin', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-   
+
 
 
     //about Page 
-     
-    router.get('/about',authenticate,(req,res)=>{
+
+    router.get('/about', authenticate, (req, res) => {
         console.log("Hello from About");
         res.send(req.rootUser);
     });
 
-     //Contact  Page 
-     
-     router.get('/contact',authenticate,(req,res)=>{
+    //Contact  Page 
+
+    router.get('/contact', authenticate, (req, res) => {
         console.log("Hello from Contact ");
         res.send(req.rootUser);
     });
 
-     //get User data for homepage and contact page
-     
-     router.get('/getdata',authenticate,(req,res)=>{
+    //get User data for homepage and contact page
+
+    router.get('/getdata', authenticate, (req, res) => {
         console.log("Hello ");
         res.send(req.rootUser);
     });
@@ -113,28 +113,28 @@ router.post('/signin', async (req, res) => {
 
     //LOGOUT PAGE 
 
-    router.get('/logout',async(req,res)=>{
+    router.get('/logout', async (req, res) => {
         console.log("Hello logout");
         // res.clearCookie('jwtoken');     
         // req.user.tokens = req.user.tokens.filter((currElement)=>{
         //     return currElement.token != req.token
         // })  
-        res.clearCookie('jwtoken',{path:'/'});   
+        res.clearCookie('jwtoken', { path: '/' });
         // await req.user.save() 
         res.status(200).send("User logout");
     });
 })
 
 //read the data of registered  Users :
-  
+
 router.get("/users", async (req, res) => {
     try {
-      const usersdata = await User.find();
-      res.send(usersdata);
-    } catch(err) {
-      res.send(err);
+        const usersdata = await User.find();
+        res.send(usersdata);
+    } catch (err) {
+        res.send(err);
     }
-  });
+});
 
 
 module.exports = router;

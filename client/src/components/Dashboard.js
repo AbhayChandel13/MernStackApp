@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { UserContext } from '../App';
 
 const Dashboard = () => {
-   
+
     const [userName, setUserName] = useState('');
     const [show, setShow] = useState(false);
 
@@ -39,14 +39,14 @@ const Dashboard = () => {
 
     useEffect(() => {
         window.localStorage.setItem('MY_APP_STATE', JSON.stringify(state));
-      }, [state]);
+    }, [state]);
 
-      useEffect(() => {
+    useEffect(() => {
         const data = window.localStorage.getItem('MY_APP_STATE');
-       
+
         // if ( data !== null ) state(JSON.parse(data));
-        dispatch({type:"USER",payload :true})
-      }, []);
+        dispatch({ type: "USER", payload: true })
+    }, []);
 
     const RenderMenu = () => {
         if (state) {
@@ -124,10 +124,10 @@ const Dashboard = () => {
                     </div>
                 </>
             )
-        }else{
-            return(
+        } else {
+            return (
                 <>
-                <div id="layoutSidenav">
+                    <div id="layoutSidenav">
                         <div id="layoutSidenav_nav" >
                             <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                                 <div className="sb-sidenav-menu">

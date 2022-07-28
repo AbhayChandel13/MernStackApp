@@ -42,13 +42,13 @@ const Signup = () => {
             //window.alert("Invalid Registration");
             toast.error(" Invalid Registration Data", {
                 position: "top-center",
-              });
+            });
             console.log("Invalid Registration Data");
         }
         else {
             toast.success("Registration Successfully!", {
                 position: "top-center",
-              });
+            });
             //window.alert("Registration Successful");
             console.log("Registration Successful");
 
@@ -60,7 +60,7 @@ const Signup = () => {
 
     return (
         <>
-         <ToastContainer />
+            <ToastContainer />
             <div id="layoutAuthentication">
                 <div id="layoutAuthentication_content">
                     <main>
