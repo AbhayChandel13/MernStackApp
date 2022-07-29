@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Header from './header/Header'
 import { NavLink, useNavigate } from 'react-router-dom';
+import {  Row, Container, Col, Table } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 import { UserContext } from '../App';
 
 
 
 const Users = () => {
+    let [searchQuery, setSearchQuery] = useState("");
     let [usersdata, setUserdata] = useState([]);
     const { state, dispatch } = useContext(UserContext);
 
@@ -43,6 +46,16 @@ const Users = () => {
         // if ( data !== null ) state(JSON.parse(data));
         dispatch({ type: "USER", payload: true })
     }, []);
+
+    if (searchQuery) {
+        usersdata = usersdata.filter(
+          (m) =>
+           
+            m.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+          
+        );
+      }
+    
     return (
         <>
             <Header />
@@ -98,11 +111,65 @@ const Users = () => {
                                     {/* <div className="fas fa-table me-1">
                                 DataTable Example
                             </div> */}
-                                    <div className="card-body">
-                                        <table id="datatablesSimple1">
-                                            <thead>
+                                    <div className="card-body">                                    
+                                       <Table hover variant="light-grey"> 
+                                        <thead>
+                                        <tr>
+                                        <th colSpan="12" className="text-left">                               
+                                  
+                                    
+                                     <div className="input-group">
+                                        <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder={"Search by Name"} 
+                                        value={searchQuery}
+                                        onChange={(e) =>    
+                                        setSearchQuery(e.target.value)
+                                        }                                     
+                                      />
+
+                                      <div className="input-group-append ">
+                                        <button
+                                          className="input-group-text"
+                                          style={{ height: "47px" }}
+                                        >
+                                        <FaSearch />
+                                        </button>
+                                      </div>
+                                         
+                                     
+                                   </div>
+                                </th>                                     
+                              </tr>
+                            </thead>                           
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Work</th>
+                                    </tr>
+                                            </thead>
+                                            {usersdata.map((usersdata, i) => (
+                                                <tbody key={usersdata._id}>
+                                                    <tr>                                                        
+                                                        <td>{usersdata.name}</td>
+                                                        <td>{usersdata.email}</td>
+                                                        <td>{usersdata.phone}</td>
+                                                        <td>{usersdata.work}</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            ))}
+                                        {/* </table> */}
+                            </Table>
+                                        
+                                        {/* <table id="datatablesSimple1">
+                                        <thead>
                                                 <tr>
-                                                    {/* <th>User_Id</th> */}
+                                                    <th>User_Id</th> 
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
@@ -113,7 +180,7 @@ const Users = () => {
                                             {usersdata.map((usersdata, i) => (
                                                 <tbody key={usersdata._id}>
                                                     <tr>
-                                                        {/* <td>{usersdata._id}</td> */}
+                                                       <td>{usersdata._id}</td> 
                                                         <td>{usersdata.name}</td>
                                                         <td>{usersdata.email}</td>
                                                         <td>{usersdata.phone}</td>
@@ -123,7 +190,7 @@ const Users = () => {
 
                                                 </tbody>
                                             ))}
-                                        </table>
+                                        </table>  */}
                                     </div>
                                 </div>
                             </div>
