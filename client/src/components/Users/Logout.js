@@ -19,7 +19,7 @@ const Logout = () => {
             dispatch({ type: "USER", payload: false })
             //dispatch({type:"NoUSER"})
             //navigate('/login',{replace : true});
-            if (res.status != 200) {
+            if (res.status !== 200) {
                 const error = new Error(res.error);
                 throw error;
             }
