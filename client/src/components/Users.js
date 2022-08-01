@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Header from './header/Header'
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  Row, Container, Col, Table } from "react-bootstrap";
+import { Row, Container, Col, Table } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import { UserContext } from '../App';
 
@@ -49,13 +49,13 @@ const Users = () => {
 
     if (searchQuery) {
         usersdata = usersdata.filter(
-          (m) =>
-           
-            m.name.toLowerCase().startsWith(searchQuery.toLowerCase())
-          
+            (m) =>
+
+                m.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+
         );
-      }
-    
+    }
+
     return (
         <>
             <Header />
@@ -105,56 +105,56 @@ const Users = () => {
                             <h1 className="mt-4">Dashboard</h1>
                             <ol className="breadcrumb mb-4">
                                 <li className="breadcrumb-item active">Dashboard</li>
-                            </ol>                          
+                            </ol>
                             <div className="card mb-4">
                                 <div className="card-header">
                                     {/* <div className="fas fa-table me-1">
                                 DataTable Example
                             </div> */}
-                                    <div className="card-body">                                    
-                                       <Table hover variant="light-grey"> 
-                                        <thead>
-                                        <tr>
-                                        <th colSpan="12" className="text-left">                               
-                                  
-                                    
-                                     <div className="input-group">
-                                        <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder={"Search by Name"} 
-                                        value={searchQuery}
-                                        onChange={(e) =>    
-                                        setSearchQuery(e.target.value)
-                                        }                                     
-                                      />
+                                    <div className="card-body">
+                                        <Table hover variant="light-grey">
+                                            <thead>
+                                                <tr>
+                                                    <th colSpan="12" className="text-left">
 
-                                      <div className="input-group-append ">
-                                        <button
-                                          className="input-group-text"
-                                          style={{ height: "47px" }}
-                                        >
-                                        <FaSearch />
-                                        </button>
-                                      </div>
-                                         
-                                     
-                                   </div>
-                                </th>                                     
-                              </tr>
-                            </thead>                           
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Work</th>
-                                    </tr>
+
+                                                        <div className="input-group">
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                id="name"
+                                                                placeholder={"Search by Name"}
+                                                                value={searchQuery}
+                                                                onChange={(e) =>
+                                                                    setSearchQuery(e.target.value)
+                                                                }
+                                                            />
+
+                                                            <div className="input-group-append ">
+                                                                <button
+                                                                    className="input-group-text"
+                                                                    style={{ height: "47px" }}
+                                                                >
+                                                                    <FaSearch />
+                                                                </button>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+                                                    <th>Work</th>
+                                                </tr>
                                             </thead>
                                             {usersdata.map((usersdata, i) => (
                                                 <tbody key={usersdata._id}>
-                                                    <tr>                                                        
+                                                    <tr>
                                                         <td>{usersdata.name}</td>
                                                         <td>{usersdata.email}</td>
                                                         <td>{usersdata.phone}</td>
@@ -163,9 +163,9 @@ const Users = () => {
 
                                                 </tbody>
                                             ))}
-                                        {/* </table> */}
-                            </Table>
-                                        
+                                            {/* </table> */}
+                                        </Table>
+
                                         {/* <table id="datatablesSimple1">
                                         <thead>
                                                 <tr>
@@ -195,7 +195,7 @@ const Users = () => {
                                 </div>
                             </div>
 
-                           
+
 
 
                         </div>
