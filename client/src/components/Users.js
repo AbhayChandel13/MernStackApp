@@ -6,7 +6,6 @@ import { FaSearch } from "react-icons/fa";
 import { UserContext } from '../App';
 
 
-
 const Users = () => {
     let [searchQuery, setSearchQuery] = useState("");
     let [usersdata, setUserdata] = useState([]);
@@ -100,17 +99,17 @@ const Users = () => {
                 <div id="layoutSidenav_content">
                     <main>
                         <div className="container-fluid px-4">
-                            <h1 className="mt-4">Dashboard</h1>
-                            <ol className="breadcrumb mb-4">
+                            {/* <h1 className="mt-4">Dashboard</h1> */}
+                            {/* <ol className="breadcrumb mb-4">
                                 <li className="breadcrumb-item active">Dashboard</li>
-                            </ol>
-                            <div className="card mb-4">
+                            </ol> */}
+                            <div className="card mb-4 mt-4">
                                 <div className="card-header">
                                     {/* <div className="fas fa-table me-1">
                                 DataTable Example
                             </div> */}
                                     <div className="card-body">
-                                        <Table hover variant="light-grey">
+                                        <Table  hover variant="light-grey">
                                             <thead>
                                                 <tr>
                                                     <th colSpan="12" className="text-left">
@@ -219,4 +218,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default Users;
