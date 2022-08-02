@@ -50,9 +50,7 @@ const Users = () => {
     if (searchQuery) {
         usersdata = usersdata.filter(
             (m) =>
-
                 m.name.toLowerCase().startsWith(searchQuery.toLowerCase())
-
         );
     }
 
