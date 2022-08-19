@@ -146,7 +146,8 @@ const Users = () => {
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
-                                                    <th>Work</th>
+                                                    <th>Role</th>
+                                                    <th>Password</th>
                                                 </tr>
                                             </thead>
                                             {usersdata.map((usersdata, i) => (
@@ -155,7 +156,8 @@ const Users = () => {
                                                         <td>{usersdata.name}</td>
                                                         <td>{usersdata.email}</td>
                                                         <td>{usersdata.phone}</td>
-                                                        <td>{usersdata.work}</td>
+                                                        <td>{usersdata.role}</td>
+                                                        <td>{usersdata.password}</td>
                                                     </tr>
 
                                                 </tbody>
