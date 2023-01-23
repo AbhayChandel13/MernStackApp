@@ -15,6 +15,7 @@ app.use(require("./router/auth"));
 
 const PORT = process.env.PORT;
 
+//mongo db connection string 
 // const DB = 'mongodb+srv://AbhayChandel:chandelabhay@cluster0.w752yjc.mongodb.net/mernstack?retryWrites=true&w=majority';
 
 app.get("/contact", (req, res) => {
