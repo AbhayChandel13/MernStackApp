@@ -21,6 +21,10 @@ const PORT = process.env.PORT;
 //mongo db connection string should be use in the connnection file
 // const DB = 'mongodb+srv://AbhayChandel:chandelabhay@cluster0.w752yjc.mongodb.net/mernstack?retryWrites=true&w=majority';
 
+
+//mongo db connection string should be use in the connnection file
+// const DB = 'mongodb+srv://AbhayChandel:chandelabhay@cluster0.w752yjc.mongodb.net/mernstack?retryWrites=true&w=majority';
+
 app.get("/contact", (req, res) => {
   res.cookie("Test", "Abhay");
   res.send("Hello from the contact page ");
