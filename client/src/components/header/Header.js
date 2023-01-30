@@ -19,11 +19,7 @@ const Header = () => {
     //     navigate = ("/login", { replace:false });
     //    }
   };
-  // const  handleclicknouser=()=>{
-  //     console.log("No User Clicked");
-  //     window.confirm("You didn't logged in ");
-  // }
-
+                        
   const RenderMenu = () => {
     if (state) {
       return (
