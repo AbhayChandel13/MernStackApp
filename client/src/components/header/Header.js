@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 
-
 const Header = () => {
   //const [show, setShow] = useState(false);
   const { state, dispatch } = useContext(UserContext);
@@ -19,7 +18,6 @@ const Header = () => {
     //     navigate = ("/login", { replace:false });
     //    }
   };
-  
 
   const RenderMenu = () => {
     if (state) {
