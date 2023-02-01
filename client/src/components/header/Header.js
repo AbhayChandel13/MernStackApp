@@ -73,8 +73,7 @@ const Header = () => {
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#!">Logout</a></li>
 
-                        <li><a className="dropdown-item" href="#!">Settings</a></li>
-                        <li><a className="dropdown-item" href="#!">Activity Log</a></li>
+                        
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#!">Logout</a></li>
                     </ul>
