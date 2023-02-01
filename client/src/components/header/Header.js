@@ -75,7 +75,7 @@ const Header = () => {
 
                         
                         
-                        <li><a className="dropdown-item" href="#!">Logout</a></li>
+                      
                     </ul>
                 </li> */}
             </ul>
