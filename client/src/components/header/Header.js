@@ -74,12 +74,6 @@ const Header = () => {
                         <li><a className="dropdown-item" href="#!">Logout</a></li>
                     </ul>
 
-
-                    
-                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                      
-                        <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#!">Logout</a></li>
                     </ul>
                 </li> */}
             </ul>
