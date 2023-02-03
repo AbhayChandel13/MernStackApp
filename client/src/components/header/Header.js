@@ -75,7 +75,7 @@ const Header = () => {
                     </ul>
 
 
-                    aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
+                    
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a className="dropdown-item" href="#!">Settings</a></li>
                         <li><a className="dropdown-item" href="#!">Activity Log</a></li>
