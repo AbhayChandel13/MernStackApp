@@ -117,12 +117,8 @@ const Header = () => {
             {/* <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <NavLink className="btn btn-primary btn-block" to="" onClick={handleclicknouser}>Logout</NavLink>            
             </ul> */}
-              {/* <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <NavLink className="btn btn-primary btn-block" to="" onClick={handleclicknouser}>Logout</NavLink>            
-            </ul> */}
-            {/* <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <NavLink className="btn btn-primary btn-block" to="" onClick={handleclicknouser}>Logout</NavLink>            
-            </ul> */}
+            
+            
           </nav>
         </>
       );
