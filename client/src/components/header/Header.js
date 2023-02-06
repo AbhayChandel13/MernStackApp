@@ -10,9 +10,7 @@ const Header = () => {
   const handleclick = () => {
     console.log("Clicked");
     //    if(window.confirm("Are You Sure, You want to Logout?")){
-
     //      navigate("/login",{ replace: true });
-
     //    }
     //    else{
     //     navigate = ("/login", { replace:false });
