@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
 
 //Using Async and Await :--
 
+//register route :
 router.post("/register", async (req, res) => {
   const { name, email, phone, work, password, cpassword } = req.body;
 
