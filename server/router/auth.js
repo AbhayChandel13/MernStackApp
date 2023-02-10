@@ -73,11 +73,8 @@ router.post("/signin", async (req, res) => {
       res.status(400).json({ error: "Invalid Credentials" });
     }
 
-    // if (!userLogin) {
-    //     res.json({ error: "User Does Not Exits" });
-    // } else {
-    //     res.json({ message: "User SignIn Successfully" });
-    // }
+
+    
   } catch (err) {
     console.log(err);
   }
