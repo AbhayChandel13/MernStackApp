@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Header = () => {
-  //const [show, setShow] = useState(false);  
+  //const [show, setShow] = useState(false);
   const { state, dispatch } = useContext(UserContext);
   let navigate = useNavigate();
 
