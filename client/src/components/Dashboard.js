@@ -24,11 +24,7 @@ const Dashboard = () => {
       //     const error = new Error(res.error)
       //     throw error;
       // }
-      // if(!res.status===200){
-      //     const error = new Error(res.error)
-      //     throw error;
-      // }
-      
+  
     } catch (error) {
       console.log(error);
     }
