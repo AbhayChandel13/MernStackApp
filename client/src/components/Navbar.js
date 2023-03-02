@@ -4,7 +4,7 @@
 
 // const Navbar = () => {
 //   return (
-//     <>     
+//     <>
 //       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 //             {/* <!-- Navbar Brand--> */}
 //             <a className="navbar-brand ps-3" href="index.html">Wowz United </a>
@@ -40,8 +40,8 @@
 //                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
 //                                 Dashboard
 //                             </a>
-//                             <div class="sb-sidenav-menu-heading">Interface</div>                          
-                            
+//                             <div class="sb-sidenav-menu-heading">Interface</div>
+
 //                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
 //                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
 //                                 Pages
@@ -55,13 +55,12 @@
 //                                     </a>
 //                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
 //                                         <nav class="sb-sidenav-menu-nested nav">
-                                       
+
 //                                         {/* <NavLink className="nav-link " to="/signup">Registration  </NavLink> */}
 //                                             <a class="nav-link" href="password.html">Forgot Password</a>
 //                                         </nav>
 //                                     </div>
-                                   
-                                    
+
 //                                 </nav>
 //                             </div>
 //                             <div class="sb-sidenav-menu-heading">Addons</div>
@@ -88,9 +87,7 @@
 //                         <ol class="breadcrumb mb-4">
 //                             <li class="breadcrumb-item active">Dashboard</li>
 //                         </ol>
-                       
-                      
-                       
+
 //                     </div>
 //                 </main>
 //                 </div> */}
@@ -106,7 +103,7 @@
 //                         </div>
 //                     </div>
 //                 </footer>
-            
+
 //         </div>
 //     </>
 //   )
