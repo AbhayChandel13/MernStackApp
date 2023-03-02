@@ -206,7 +206,6 @@ const Users = () => {
                                                         <td>{usersdata.phone}</td>
                                                         <td>{usersdata.work}</td>
                                                     </tr>
-
                                                 </tbody>
                                             ))}
                                         </table>  */}
