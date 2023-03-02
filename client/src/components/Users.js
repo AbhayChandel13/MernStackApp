@@ -205,7 +205,6 @@ const Users = () => {
                                                         <td>{usersdata.email}</td>
                                                         <td>{usersdata.phone}</td>
                                                         <td>{usersdata.work}</td>
-
                                                     </tr>
 
                                                 </tbody>
