@@ -37,6 +37,7 @@ const Users = () => {
   }, []);
 
   useEffect(() => {
+    
     // const data = window.localStorage.getItem('MY_APP_STATE');
     // if ( data !== null ) state(JSON.parse(data));
     dispatch({ type: "USER", payload: true });
