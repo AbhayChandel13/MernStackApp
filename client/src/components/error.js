@@ -50,7 +50,7 @@ const Error = () => {
                 <div>
                   <a href="#">Privacy Policy</a>
                   &middot;
-                  <a href="#">Terms &amp; Conditions</a>
+                  <a href="#">Terms &amp; Condition</a>
                 </div>
               </div>
             </div>
