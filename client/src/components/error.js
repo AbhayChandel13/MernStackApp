@@ -6,7 +6,6 @@ const Error = () => {
 
   return (
     <>
-    
       {/* <div className="container">
         <div className="error d-flex flex-column justify-content-lg-center align-items-center">
           //<img src="./404.png" alt="error" className='errorimg' />
