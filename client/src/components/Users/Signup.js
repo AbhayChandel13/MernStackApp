@@ -43,6 +43,7 @@ const Signup = () => {
       });
       console.log("Invalid Registration Data");
     } else {
+      //window.alert("Invalid Registration");
       toast.success("Registration Successfully!", {
         position: "top-center",
       });
