@@ -107,6 +107,5 @@
 //     </>
 //   )
 // }
-//comment 1
 
 // export default Navbar
